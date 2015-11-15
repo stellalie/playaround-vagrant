@@ -18,11 +18,11 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :salt do |salt|
     salt.minion_config = "saltstack/etc/dev1"
-
     salt.minion_key = "saltstack/keys/dev1.pem"
     salt.minion_pub = "saltstack/keys/dev1.pub"
 
     salt.run_highstate = true
+    salt.bootstrap_options = "-P -c /tmp"
   end
 
 end
