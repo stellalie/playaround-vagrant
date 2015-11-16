@@ -35,7 +35,7 @@ master: localhost
 #master_port: 4506
 
 # The user to run salt.
-#user: root
+user: vagrant
 
 # Specify the location of the daemon process ID file.
 #pidfile: /var/run/salt-minion.pid

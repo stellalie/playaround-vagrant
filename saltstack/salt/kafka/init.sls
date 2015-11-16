@@ -30,4 +30,4 @@ start-kafka-service:
     cmd.run:
         - user: kafka
         - cwd: /home/kafka/kafka
-        - name: nohub bin/kafka-server-start.sh config/server.properties > kafka.log 2>&1 &
+        - name: nohup bin/kafka-server-start.sh config/server.properties > logs/kafka.log 2>&1 &
