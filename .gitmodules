@@ -1,0 +1,9 @@
+[submodule "code/salt"]
+	path = code/salt
+	url = https://github.com/stellalie/salt-thingosity-states
+[submodule "iot_platform_web_node"]
+	path = iot_platform_web_node
+	url = https://github.com/stellalie/iot_platform_web_node
+[submodule "code/webnode"]
+	path = code/webnode
+	url = https://github.com/stellalie/iot_platform_web_node
