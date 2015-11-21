@@ -16,11 +16,19 @@ Vagrant.configure(2) do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
+  config.vm.provision :salt do |salt|
+    salt.minion_config = "saltstack/etc/dev1"
+    salt.minion_key = "saltstack/keys/dev1.pem"
+    salt.minion_pub = "saltstack/keys/dev1.pub"
+    salt.bootstrap_options = "-P -c /tmp"
+  end
+
   config.git.add_repo do |rc|
     rc.target = 'https://github.com/stellalie/salt-thingosity-states'
     rc.path = 'code/salt'
     rc.branch = 'master'
     rc.clone_in_host = true
+    rc.sync_on_load = true
   end
   config.git.add_repo do |rc|
     rc.target = 'https://github.com/stellalie/iot_platform_web_node'
@@ -33,14 +41,6 @@ Vagrant.configure(2) do |config|
     rc.path = 'code/processor'
     rc.branch = 'master'
     rc.clone_in_host = true
-  end
-
-  config.vm.provision :salt do |salt|
-    salt.minion_config = "saltstack/etc/dev1"
-    salt.minion_key = "saltstack/keys/dev1.pem"
-    salt.minion_pub = "saltstack/keys/dev1.pub"
-    salt.bootstrap_options = "-P -c /tmp"
-    salt.run_highstate = true
   end
 
 end
