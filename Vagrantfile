@@ -42,5 +42,11 @@ Vagrant.configure(2) do |config|
     rc.branch = 'master'
     rc.clone_in_host = true
   end
+  config.git.add_repo do |rc|
+    rc.target = 'https://github.com/stellalie/mqtt-server'
+    rc.path = 'code/mqttserver'
+    rc.branch = 'master'
+    rc.clone_in_host = true
+  end
 
 end
